@@ -28,36 +28,28 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">
-                <a href="/">Home</a>
-              </Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/services">
-                <a href="/">Services</a>
-              </Link>
+              <Link to="/services">Services</Link>
             </li>
           </ul>
         </div>
         <img className="h-16 ml-6" src={logo} alt="logo"></img>
-        <a
+        <Link
           href="/"
           className="btn btn-ghost text-3xl text-blue-500 font-bold pl-0"
         >
           E-Tailor
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link to="/">
-              <a href="/">Home</a>
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/services">
-              <a href="/">Services</a>
-            </Link>
+            <Link to="/services">Services</Link>
           </li>
         </ul>
       </div>
