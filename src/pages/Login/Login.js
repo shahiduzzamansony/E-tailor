@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Form, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const Login = () => {
+  const { emailSignin } = useContext(AuthContext);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    emailSignin(email, password)
+      .then(() => {})
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div className="hero">
       <div className="hero-content flex">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <Form className="card-body py-3">
+          <form onSubmit={handleLogin} className="card-body py-3">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <div className="form-control">
               <label className="label">
@@ -34,7 +47,7 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
-          </Form>
+          </form>
 
           <p className="text-center">
             Don't have any account?

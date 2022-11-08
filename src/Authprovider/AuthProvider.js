@@ -3,10 +3,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
@@ -16,14 +17,21 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  const emailSignin = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password);
+  };
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setUser(currentUser);
     });
+
+    return () => {
+      return unsubscribe();
+    };
   });
 
-  const authInfo = { user, loading, createUser };
+  const authInfo = { user, loading, createUser, emailSignin };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
