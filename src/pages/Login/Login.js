@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const Login = () => {
-  const { emailSignin } = useContext(AuthContext);
+  const { emailSignin, googleSignin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -12,7 +15,12 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     emailSignin(email, password)
-      .then(() => {})
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        navigate(from, { replace: true });
+      })
       .catch((err) => console.error(err));
   };
 
@@ -55,7 +63,7 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <button className="btn btn-light my-2">
+          <button onClick={googleSignin} className="btn btn-light my-2">
             <FaGoogle className="mr-3"></FaGoogle>Google Login
           </button>
           <button className="btn btn-light">

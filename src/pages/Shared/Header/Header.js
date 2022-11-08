@@ -4,7 +4,7 @@ import { AuthContext } from "../../../Authprovider/AuthProvider";
 import logo from "../../../images/favicon.jpg";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <div className="navbar bg-base-100">
@@ -54,13 +54,25 @@ const Header = () => {
           <li>
             <Link to="/services">Services</Link>
           </li>
+          <li>
+            <Link to="/addservice">Add Service</Link>
+          </li>
+          {user ? (
+            <li>
+              <Link to="/addservice">My Reviews</Link>
+            </li>
+          ) : (
+            ""
+          )}
         </ul>
       </div>
       <div className="navbar-end">
         {user ? (
           <>
             <p className="mr-3">{user.email}</p>
-            <Link className="btn btn-primary">log Out</Link>
+            <Link onClick={logout} className="btn btn-primary">
+              log Out
+            </Link>
           </>
         ) : (
           <Link to="/login">
