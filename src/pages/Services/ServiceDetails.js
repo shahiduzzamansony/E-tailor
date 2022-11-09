@@ -4,7 +4,7 @@ import Reviews from "../Reviews/Reviews";
 
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
-  const { title, price, details, image } = serviceDetails;
+  const { _id, title, price, details, image } = serviceDetails;
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl mx-auto my-4">
@@ -22,7 +22,7 @@ const ServiceDetails = () => {
       </h2>
       <Reviews head={title}></Reviews>
       <div className="flex justify-center">
-        <Link to="/myreviews">
+        <Link to={`/addReviews/${_id}`}>
           <button className="btn btn-primary my-4">Add your views</button>
         </Link>
       </div>

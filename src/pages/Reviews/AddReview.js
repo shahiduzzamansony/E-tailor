@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const AddReview = () => {
+  const data = useLoaderData();
+  const { title } = data;
+  //   console.log(title);
   const { user } = useContext(AuthContext);
   const handleAddReview = (event) => {
     event.preventDefault();
     const form = event.target;
-    const title = form.title.value;
+    // const title = form.title.value;
     const image = form.image.value;
     const text = form.text.value;
     const email = user?.email || "unregistered";
@@ -30,7 +34,7 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Service added succesfully");
+          alert("Review added succesfully");
           form.reset();
         }
       })
@@ -44,19 +48,20 @@ const AddReview = () => {
             type="text"
             name="title"
             placeholder="Please use same title"
+            defaultValue={title}
             className="input input-bordered w-full max-w-xs mb-3 mx-auto"
             required
           />
           <input
             type="text"
-            placeholder="Image URL"
+            placeholder="Your image"
             name="image"
             className="input input-bordered w-full max-w-xs mb-3 mx-auto"
             required
           />
           <input
             type="text"
-            placeholder="Details"
+            placeholder="Review"
             name="text"
             className="input input-bordered w-full max-w-xs mb-3 mx-auto"
             required

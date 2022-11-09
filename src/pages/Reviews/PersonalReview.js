@@ -8,7 +8,7 @@ const PersonalReview = () => {
 
   useEffect(() => {
     fetch(
-      `https://service-review-assignment-server-shahiduzzamansony.vercel.app/reviews?email=${user.email}`
+      `https://service-review-assignment-server-shahiduzzamansony.vercel.app/reviews?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setReviews(data))
