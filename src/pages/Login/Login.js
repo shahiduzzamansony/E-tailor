@@ -4,10 +4,22 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const Login = () => {
-  const { emailSignin, googleSignin, githubSignin } = useContext(AuthContext);
+  const { emailSignin, googleSignin, githubSignin, loading } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+  if (loading) {
+    return (
+      <button type="button" class="bg-indigo-500 ..." disabled>
+        <svg
+          className="animate-spin h-5 w-5 mr-3 ..."
+          viewBox="0 0 24 24"
+        ></svg>
+        Processing...
+      </button>
+    );
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();

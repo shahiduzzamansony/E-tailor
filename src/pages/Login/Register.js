@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, loading } = useContext(AuthContext);
 
+  if (loading) {
+    return (
+      <button type="button" class="bg-indigo-500 ..." disabled>
+        <svg
+          className="animate-spin h-5 w-5 mr-3 ..."
+          viewBox="0 0 24 24"
+        ></svg>
+        Processing...
+      </button>
+    );
+  }
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
