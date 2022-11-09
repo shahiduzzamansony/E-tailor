@@ -2,9 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 
 const Register = () => {
   const { createUser, loading } = useContext(AuthContext);
+  useTitle("Register");
 
   if (loading) {
     return (
