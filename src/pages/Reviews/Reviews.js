@@ -4,7 +4,7 @@ import ReviewCard from "./ReviewCard";
 const Reviews = ({ head }) => {
   console.log(head);
   const [reviews, setReviews] = useState([]);
-  const url = `http://localhost:5000/reviews?title=${head}`;
+  const url = `https://service-review-assignment-server-shahiduzzamansony.vercel.app/reviews?title=${head}`;
 
   useEffect(() => {
     fetch(url)
