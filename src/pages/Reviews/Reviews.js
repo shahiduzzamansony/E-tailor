@@ -13,7 +13,7 @@ const Reviews = ({ head }) => {
       .catch((err) => console.error(err));
   }, [head]);
   return (
-    <div className=" flex flex-col lg:flex-row gap-5 justify-center">
+    <div className=" grid grid-rows-1 md:grid-cols-3 gap-5 justify-center">
       {reviews.map((review) => (
         <ReviewCard key={review._id} review={review}></ReviewCard>
       ))}
