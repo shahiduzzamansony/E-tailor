@@ -59,7 +59,7 @@ const Header = () => {
           </li>
           {user ? (
             <li>
-              <Link to="/addservice">My Reviews</Link>
+              <Link to="/myreviews">My Reviews</Link>
             </li>
           ) : (
             ""

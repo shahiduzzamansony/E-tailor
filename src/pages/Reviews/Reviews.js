@@ -3,7 +3,7 @@ import ReviewCard from "./ReviewCard";
 
 const Reviews = ({ head }) => {
   console.log(head);
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState([]);
   const url = `http://localhost:5000/reviews?title=${head}`;
 
   useEffect(() => {

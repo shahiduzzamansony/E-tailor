@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Reviews from "../Reviews/Reviews";
 
 const ServiceDetails = () => {
@@ -17,7 +17,15 @@ const ServiceDetails = () => {
           <p className="font-semibold">Charge: {price} TK</p>
         </div>
       </div>
+      <h2 className="text-center text-green-400 my-5 text-3xl fonr-semibold">
+        Here are our reviews!
+      </h2>
       <Reviews head={title}></Reviews>
+      <div className="flex justify-center">
+        <Link to="/myreviews">
+          <button className="btn btn-primary my-4">Add your views</button>
+        </Link>
+      </div>
     </div>
   );
 };
