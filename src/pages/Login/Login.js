@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const Login = () => {
-  const { emailSignin, googleSignin } = useContext(AuthContext);
+  const { emailSignin, googleSignin, githubSignin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -66,7 +66,7 @@ const Login = () => {
           <button onClick={googleSignin} className="btn btn-light my-2">
             <FaGoogle className="mr-3"></FaGoogle>Google Login
           </button>
-          <button className="btn btn-light">
+          <button onClick={githubSignin} className="btn btn-light">
             <FaGithub className="mr-3"></FaGithub>Github Login
           </button>
         </div>

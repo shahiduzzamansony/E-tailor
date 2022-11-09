@@ -1,12 +1,13 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Reviews from "../Reviews/Reviews";
 
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
   const { title, price, details, image } = serviceDetails;
   return (
-    <div className=" flex flex-col lg:flex-row">
-      <div className="card w-96 bg-base-100 shadow-xl ml-12">
+    <div>
+      <div className="card w-96 bg-base-100 shadow-xl mx-auto my-4">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl" />
         </figure>
@@ -16,7 +17,7 @@ const ServiceDetails = () => {
           <p className="font-semibold">Charge: {price} TK</p>
         </div>
       </div>
-      <div className="mx-auto">review</div>
+      <Reviews head={title}></Reviews>
     </div>
   );
 };

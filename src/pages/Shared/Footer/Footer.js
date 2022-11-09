@@ -8,9 +8,9 @@ const Footer = () => {
       <div>
         <img className="h-16 rounded" src={logo} alt="logo"></img>
         <p>
-          ACME Industries Ltd.
+          E-Tailor
           <br />
-          Providing reliable tech since 1992
+          Providing reliable service since 2010
         </p>
       </div>
       <div>
