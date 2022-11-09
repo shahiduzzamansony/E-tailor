@@ -31,15 +31,11 @@ const AuthProvider = ({ children }) => {
   };
   const googleSignin = () => {
     setLoading(true);
-    return signInWithPopup(auth, provider)
-      .then(() => {})
-      .catch((err) => console.error(err));
+    return signInWithPopup(auth, provider);
   };
   const githubSignin = () => {
     setLoading(true);
-    return signInWithPopup(auth, gitProvider)
-      .then(() => {})
-      .catch((err) => console.error(err));
+    return signInWithPopup(auth, gitProvider);
   };
   const logout = () => {
     return signOut(auth)

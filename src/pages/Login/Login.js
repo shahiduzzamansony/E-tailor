@@ -37,6 +37,20 @@ const Login = () => {
       })
       .catch((err) => console.error(err));
   };
+  const handleGooglein = () => {
+    googleSignin()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.error(err));
+  };
+  const handleGithubin = () => {
+    githubSignin()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="hero">
@@ -77,10 +91,10 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <button onClick={googleSignin} className="btn btn-light my-2">
+          <button onClick={handleGooglein} className="btn btn-light my-2">
             <FaGoogle className="mr-3"></FaGoogle>Google Login
           </button>
-          <button onClick={githubSignin} className="btn btn-light">
+          <button onClick={handleGithubin} className="btn btn-light">
             <FaGithub className="mr-3"></FaGithub>Github Login
           </button>
         </div>

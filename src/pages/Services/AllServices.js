@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import useTitle from "../../hooks/UseTitle";
 import ServiceCard from "./ServiceCard";
 
-const Services = () => {
+const AllServices = () => {
   const [services, setServices] = useState([]);
   useTitle("Services");
 
   useEffect(() => {
     fetch(
-      "https://service-review-assignment-server-shahiduzzamansony.vercel.app/services"
+      "https://service-review-assignment-server-shahiduzzamansony.vercel.app/allservices"
     )
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-
   return (
     <div className="my-5">
       <h2 className="text-3xl text-center text-semibold text-orange-500">
@@ -31,4 +30,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default AllServices;

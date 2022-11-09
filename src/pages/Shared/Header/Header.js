@@ -34,8 +34,21 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/allservices">Services</Link>
             </li>
+            <li>
+              <Link to="/addservice">Add Service</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
+            </li>
+            {user ? (
+              <li>
+                <Link to="/myreviews">My Reviews</Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
         <img className="h-16 ml-6" src={logo} alt="logo"></img>
@@ -52,10 +65,13 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/services">Services</Link>
+            <Link to="/allservices">Services</Link>
           </li>
           <li>
             <Link to="/addservice">Add Service</Link>
+          </li>
+          <li>
+            <Link to="/blog">Blog</Link>
           </li>
           {user ? (
             <li>
@@ -69,7 +85,9 @@ const Header = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <p className="mr-3">{user.email}</p>
+            <p className="mr-3">
+              {user.displayName ? user.displayName : user.email}
+            </p>
             <Link onClick={logout} className="btn btn-primary">
               log Out
             </Link>

@@ -14,13 +14,16 @@ const PersonalReview = () => {
       .then((data) => setReviews(data))
       .catch((err) => console.error(err));
   }, [user?.email]);
+
   return (
     <div className=" grid grid-rows-1 md:grid-cols-3 gap-5 justify-center">
       {reviews.map((review) => (
-        <PersonalReviewCard
-          key={review._id}
-          review={review}
-        ></PersonalReviewCard>
+        <>
+          <PersonalReviewCard
+            key={review._id}
+            review={review}
+          ></PersonalReviewCard>
+        </>
       ))}
     </div>
   );

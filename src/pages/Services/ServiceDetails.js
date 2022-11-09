@@ -6,6 +6,7 @@ import Reviews from "../Reviews/Reviews";
 const ServiceDetails = () => {
   useTitle("Service Details");
   const serviceDetails = useLoaderData();
+  console.log(serviceDetails);
   const { _id, title, price, details, image } = serviceDetails;
   return (
     <div>
