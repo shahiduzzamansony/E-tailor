@@ -51,7 +51,7 @@ const Header = () => {
             )}
           </ul>
         </div>
-        <img className="h-16 ml-6" src={logo} alt="logo"></img>
+        <img className="h-16 lg:ml-6" src={logo} alt="logo"></img>
         <Link
           href="/"
           className="btn btn-ghost text-3xl text-blue-500 font-bold pl-0"
@@ -84,14 +84,14 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <>
+          <div className="flex items-center flex-col-reverse md:flex-row gap-2">
             <p className="mr-3">
               {user.displayName ? user.displayName : user.email}
             </p>
             <Link onClick={logout} className="btn btn-primary">
               log Out
             </Link>
-          </>
+          </div>
         ) : (
           <Link to="/login">
             <button className="btn">Login</button>

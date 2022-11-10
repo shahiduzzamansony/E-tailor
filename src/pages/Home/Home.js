@@ -17,20 +17,20 @@ const Home = () => {
         Factory Location
       </h2>
       <div className="my-8">
-        <div className="card max-h-96 max-w-4xl bg-base-100 shadow-xl mx-auto image-full">
+        <div className="card max-h-96 max-w-4xl bg-base-100 shadow-xl mx-3 md:mx-auto image-full">
           <figure>
             <img src={map} alt="map" />
           </figure>
 
           <div className="card-body my-auto">
-            <h2 className="text-6xl text-center font-semibold mb-3">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl text-center font-semibold mb-3">
               Meet Us Here
             </h2>
-            <p className="text-xl text-center">
+            <p className="md:text-xl text-center">
               This is our meet up location. If you think the emergence fo
               meeting just come here and meet us.
             </p>
-            <p className="text-xl text-center">
+            <p className="md:text-xl text-center">
               Location : ShahAli Plaza, Mirpur 10, Bus Stand.
             </p>
           </div>
