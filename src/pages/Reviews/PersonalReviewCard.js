@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PersonalReviewCard = ({ review, handleDelete, handleUpdate }) => {
+const PersonalReviewCard = ({ review, handleDelete }) => {
+  console.log(review);
   const { title, image, text, _id } = review;
 
   return (
@@ -18,7 +19,7 @@ const PersonalReviewCard = ({ review, handleDelete, handleUpdate }) => {
         </div>
         <div className="flex justify-between mx-4 my-6">
           <div className="card-actions">
-            <Link to="/updatereview" className="btn btn-primary">
+            <Link to={`/updatereview/${_id}`} className="btn btn-primary">
               Edit Review
             </Link>
           </div>

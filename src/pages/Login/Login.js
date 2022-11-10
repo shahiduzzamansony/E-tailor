@@ -33,7 +33,24 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        navigate(from, { replace: true });
+        const currentUser = { email: user.email };
+        //get jwt token
+        fetch(
+          "https://service-review-assignment-server-shahiduzzamansony.vercel.app/jwt",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(currentUser),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => console.error(err));
   };
@@ -83,6 +100,12 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
+            <button onClick={handleGooglein} className="btn btn-light my-2">
+              <FaGoogle className="mr-3"></FaGoogle>Google Login
+            </button>
+            <button onClick={handleGithubin} className="btn btn-light">
+              <FaGithub className="mr-3"></FaGithub>Github Login
+            </button>
           </form>
 
           <p className="text-center">
@@ -91,12 +114,6 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <button onClick={handleGooglein} className="btn btn-light my-2">
-            <FaGoogle className="mr-3"></FaGoogle>Google Login
-          </button>
-          <button onClick={handleGithubin} className="btn btn-light">
-            <FaGithub className="mr-3"></FaGithub>Github Login
-          </button>
         </div>
       </div>
     </div>

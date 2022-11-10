@@ -75,7 +75,11 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-        path: "/updatereview",
+        path: "/updatereview/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://service-review-assignment-server-shahiduzzamansony.vercel.app/reviews/${params.id}`
+          ),
         element: <UpdateReview></UpdateReview>,
       },
     ],
