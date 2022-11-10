@@ -21,7 +21,7 @@ const AllServices = () => {
       <p className="text-xl text-center">
         Here you will experience the best tailoring services.
       </p>
-      <div className=" grid grid-cols-3">
+      <div className=" grid grid-cols-1 lg:grid-cols-3">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
