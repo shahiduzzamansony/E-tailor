@@ -5,7 +5,7 @@ import PersonalReviewCard from "./PersonalReviewCard";
 const PersonalReview = () => {
   const { user, logout } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
-  console.log(user.email);
+  // console.log(user.email);
 
   useEffect(() => {
     fetch(
@@ -17,9 +17,9 @@ const PersonalReview = () => {
       }
     )
       .then((res) => {
-        if (res.status === 401 || res.status === 403) {
-          logout();
-        }
+        // if (res.status === 401 || res.status === 403) {
+        //   logout();
+        // }
         return res.json();
       })
       .then((data) => setReviews(data))
@@ -34,7 +34,7 @@ const PersonalReview = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.deletedCount > 0) {
             alert("successful");
             const remaining = reviews.filter((rvw) => rvw._id !== id);

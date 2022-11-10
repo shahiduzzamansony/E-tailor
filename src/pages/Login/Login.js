@@ -30,7 +30,7 @@ const Login = () => {
     emailSignin(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         form.reset();
         const currentUser = { email: user.email };
         //get jwt token
@@ -46,7 +46,7 @@ const Login = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             localStorage.setItem("token", data.token);
             navigate(from, { replace: true });
           });
@@ -57,7 +57,7 @@ const Login = () => {
     googleSignin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         const currentUser = { email: user.email };
         //get jwt token
         fetch(

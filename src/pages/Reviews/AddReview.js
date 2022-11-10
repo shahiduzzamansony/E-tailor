@@ -22,7 +22,7 @@ const AddReview = () => {
       image,
       text,
     };
-    console.log(review);
+    // console.log(review);
     fetch(
       "https://service-review-assignment-server-shahiduzzamansony.vercel.app/reviews",
       {
