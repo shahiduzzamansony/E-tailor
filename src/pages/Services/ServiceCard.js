@@ -9,9 +9,13 @@ const ServiceCard = ({ service }) => {
     <PhotoProvider>
       <div className="mx-auto my-3">
         <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
+          <figure className="pt-5">
             <PhotoView src={image}>
-              <img src={image} alt="Shoes" className="rounded-xl" />
+              <img
+                src={image}
+                alt="Shoes"
+                className="rounded-xl mx-w-sm max-h-36"
+              />
             </PhotoView>
           </figure>
           <div className="card-body items-center text-center">

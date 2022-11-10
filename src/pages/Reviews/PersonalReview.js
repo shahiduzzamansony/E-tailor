@@ -5,6 +5,7 @@ import PersonalReviewCard from "./PersonalReviewCard";
 const PersonalReview = () => {
   const { user, logout } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  console.log(user.email);
 
   useEffect(() => {
     fetch(
@@ -23,7 +24,7 @@ const PersonalReview = () => {
       })
       .then((data) => setReviews(data))
       .catch((err) => console.error(err));
-  }, [user?.email]);
+  }, [user?.email, logout]);
   const handleDelete = (id) => {
     const proceed = window.confirm("Do you really want to delete?");
     if (proceed) {
@@ -45,7 +46,7 @@ const PersonalReview = () => {
 
   return (
     <div className=" grid grid-cols-1 lg:grid-cols-3 gap-5 justify-center">
-      {reviews.map((review) => (
+      {reviews?.map((review) => (
         <>
           <PersonalReviewCard
             key={review._id}

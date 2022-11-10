@@ -15,7 +15,7 @@ const AllServices = () => {
   }, []);
   return (
     <div className="my-5">
-      <h2 className="text-3xl text-center text-semibold text-orange-500">
+      <h2 className="text-5xl text-center text-bold text-orange-500 mb-4">
         Service Spheres
       </h2>
       <p className="text-xl text-center">

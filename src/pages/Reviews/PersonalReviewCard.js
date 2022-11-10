@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PersonalReviewCard = ({ review, handleDelete }) => {
-  console.log(review);
+  // console.log(review._id);
   const { title, image, text, _id } = review;
 
   return (
-    <div className="mx-auto">
+    <div>
       <div className="card w-80 bg-base-100 shadow-xl my-5">
         <div className="avatar ">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mx-auto ">

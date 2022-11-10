@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 import useTitle from "../../hooks/UseTitle";
 
 const Login = () => {
-  const { emailSignin, googleSignin, githubSignin, loading } =
-    useContext(AuthContext);
+  const { emailSignin, googleSignin, loading } = useContext(AuthContext);
   useTitle("login");
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,15 +55,27 @@ const Login = () => {
   };
   const handleGooglein = () => {
     googleSignin()
-      .then(() => {
-        navigate(from, { replace: true });
-      })
-      .catch((err) => console.error(err));
-  };
-  const handleGithubin = () => {
-    githubSignin()
-      .then(() => {
-        navigate(from, { replace: true });
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const currentUser = { email: user.email };
+        //get jwt token
+        fetch(
+          "https://service-review-assignment-server-shahiduzzamansony.vercel.app/jwt",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(currentUser),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => console.error(err));
   };
@@ -100,13 +111,10 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
-            <button onClick={handleGooglein} className="btn btn-light my-2">
-              <FaGoogle className="mr-3"></FaGoogle>Google Login
-            </button>
-            <button onClick={handleGithubin} className="btn btn-light">
-              <FaGithub className="mr-3"></FaGithub>Github Login
-            </button>
           </form>
+          <button onClick={handleGooglein} className="btn btn-light my-2">
+            <FaGoogle className="mr-3"></FaGoogle>Google Login
+          </button>
 
           <p className="text-center">
             Don't have any account?

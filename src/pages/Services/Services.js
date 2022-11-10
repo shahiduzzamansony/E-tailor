@@ -15,7 +15,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="my-5">
+    <div className=" my-9">
       <h2 className="text-3xl text-center text-semibold text-orange-500">
         Service Spheres
       </h2>
