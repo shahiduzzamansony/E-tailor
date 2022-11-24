@@ -13,7 +13,8 @@ const Banner = () => {
           <h2 className="card-title text-4xl">Town's Best Tailor!</h2>
           <p className="text-xl mt-4">
             We provide the best tailoring services in the town.
-            <br /> Just trust us once and experience the luxury of tailoring.
+            <br /> Just trust us once and experience the luxury of tailoring
+            services.
           </p>
           <div className="card-actions justify-start">
             <Link>
